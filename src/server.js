@@ -2,25 +2,14 @@
 // TODO setup server
 const express = require('express');
 
-const { sequelize } = require('../database/db.config');
+// eslint-disable-next-line no-unused-vars
+const { databaseConnection } = require('../database/db.config');
 
 const app = express();
 
 require('dotenv').config();
 
-const port = process.env.PORT;
-
-// database connection using configuration in db.config.js
-const databaseConnection = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('successfully connected to database');
-  } catch (error) {
-    console.error('unable to connect to database');
-  }
-};
-
-databaseConnection();
+const port = process.env.PORT || 8080;
 
 // To check that node server is running successfully
 app.listen(port, () => {

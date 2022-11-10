@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // TODO postgres connection config file
 const { Sequelize } = require('sequelize');
 
@@ -15,4 +16,16 @@ const host = process.env.HOST;
 // creating an instance of our sequelize connection
 const sequelize = new Sequelize(databaseName, username, password, { host, dialect: 'postgres' });
 
-module.exports = { sequelize };
+// database connection using configuration in db.config.js
+const databaseConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('successfully connected to database');
+  } catch (error) {
+    console.error('unable to connect to database');
+  }
+};
+
+databaseConnection();
+
+module.exports = { databaseConnection };
