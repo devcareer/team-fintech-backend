@@ -4,7 +4,9 @@
   "description": "Backend for Fintech App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,16 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
+    "winston": "^3.8.2"
   }
 }
