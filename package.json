@@ -1,23 +1,11 @@
 {
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "by": "^0.2.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "nodemon": "^2.0.20",
-    "passport": "^0.6.0",
-    "passport-google-oauth": "^2.0.0",
-    "winston": "^3.8.2"
-  },
   "name": "team-fintech-backend",
   "description": "The Backend for our Fintech Produt",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "server.js",
   "scripts": {
-    "start": "node ./app.js",
-    "dev": "nodemon ./app.js",
+    "start": "node .src/server.js",
+    "dev": "nodemon ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,5 +17,17 @@
   "bugs": {
     "url": "https://github.com/devcareer/team-fintech-backend/issues"
   },
-  "homepage": "https://github.com/devcareer/team-fintech-backend#readme"
+  "homepage": "https://github.com/devcareer/team-fintech-backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
