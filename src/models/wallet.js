@@ -1,7 +1,7 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Wallet extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,12 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
-      // the association between user and wallet is that each user has one wallet
-      User.hasOne(models.wallets);
+      Wallet.belongsTo(models.users);
+      Wallet.hasMany(models.transactions);
     }
   }
-  User.init(
+  Wallet.init(
     {
       id: {
         type: DataTypes.UUID,
@@ -22,46 +21,30 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         allowNull: false,
       },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
+      user_id: {
+        type: DataTypes.UUID,
         allowNull: false,
         unique: true,
       },
-      password: {
-        type: DataTypes.STRING,
+      balance: {
+        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
         allowNull: false,
-        unique: true,
-      },
-      phoneNumber: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
       },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,
-        field: 'created_at',
       },
       updated_at: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.NOW,
-        field: 'updated_at',
       },
     },
     {
       sequelize,
-      modelName: 'user',
+      modelName: 'wallets',
     }
   );
-  return User;
+  return Wallet;
 };
