@@ -31,6 +31,11 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      is_verified: {
+        type: Sequelize.ENUM('unverified', 'pending', 'verified'),
+        defaultValue: 'unverified',
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

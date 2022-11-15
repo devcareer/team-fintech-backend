@@ -1,7 +1,7 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Transaction extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,12 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
-      // the association between user and wallet is that each user has one wallet
-      User.hasOne(models.wallets);
+      Transaction.belongsTo(models.wallets);
     }
   }
-  User.init(
+  Transaction.init(
     {
       id: {
         type: DataTypes.UUID,
@@ -22,52 +20,55 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         allowNull: false,
       },
-      firstName: {
-        type: DataTypes.STRING,
+      txn_type: {
+        type: DataTypes.ENUM('debit', 'credit'),
         allowNull: false,
       },
-      lastName: {
-        type: DataTypes.STRING,
+      purpose: {
+        type: DataTypes.ENUM('deposit', 'transfer', 'withdrawal'),
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING,
+      amount: {
+        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
         allowNull: false,
+      },
+      wallet_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+      },
+      reference: {
+        type: DataTypes.UUID,
         unique: true,
       },
-      password: {
-        type: DataTypes.STRING,
+      balance_before: {
+        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
         allowNull: false,
-        unique: true,
       },
-      phoneNumber: {
-        type: DataTypes.INTEGER,
+      balance_after: {
+        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
         allowNull: false,
-        unique: true,
       },
-      is_verified: {
-        type: DataTypes.ENUM('unverified', 'pending', 'verified'),
-        defaultValue: 'unverified',
+      status: {
+        type: DataTypes.ENUM('success', 'failed', 'pending'),
         allowNull: false,
+        defaultValue: 'pending',
       },
       created_at: {
         type: DataTypes.DATE,
+        defaultValue: sequelize.NOW,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
-        field: 'created_at',
       },
       updated_at: {
         type: DataTypes.DATE,
+        defaultValue: sequelize.NOW,
         allowNull: false,
-        defaultValue: DataTypes.NOW,
-        field: 'updated_at',
       },
     },
     {
       sequelize,
-      modelName: 'user',
+      modelName: 'transactions',
       underscored: true,
     }
   );
-  return User;
+  return Transaction;
 };

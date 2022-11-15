@@ -6,3 +6,17 @@ export const UNAUTHORISED = 401;
 export const FORBIDDEN = 403;
 export const NOT_FOUND = 404;
 export const ERROR = 500;
+
+// constants ENUM values for user verification status
+export const VERIFIED = 'verified';
+export const UNVERIFIED = 'unverified';
+export const PENDIND = 'pending';
+
+// constants ENUM values for transaction type
+export const DEBIT = 'debit';
+export const CREDIT = 'credit';
+
+// constants ENUM values for transaction purpose
+export const DEPOSIT = 'deposit';
+export const WITHDRAWAL = 'withdrawal';
+export const TRANSFER = 'transfer';
