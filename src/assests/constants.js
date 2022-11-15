@@ -10,7 +10,7 @@ export const ERROR = 500;
 // constants ENUM values for user verification status
 export const VERIFIED = 'verified';
 export const UNVERIFIED = 'unverified';
-export const PENDIND = 'pending';
+export const PENDING = 'pending';
 
 // constants ENUM values for transaction type
 export const DEBIT = 'debit';
