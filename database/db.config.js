@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-// TODO postgres connection config file
 const { Sequelize } = require('sequelize');
 
 require('dotenv').config();
@@ -28,4 +27,5 @@ const databaseConnection = async () => {
 
 databaseConnection();
 
-module.exports = { databaseConnection };
+// export the instance of the connection
+module.exports = { sequelize };
