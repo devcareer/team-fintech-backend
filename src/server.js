@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 
-const { walletRouter } = require('./routes/walletRoutes');
+const walletRouter = require('./routes/walletRoutes');
 
 const app = express();
 

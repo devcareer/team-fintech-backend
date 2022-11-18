@@ -28,4 +28,4 @@ const databaseConnection = async () => {
 databaseConnection();
 
 // export the instance of the connection
-module.exports = { sequelize };
+module.exports = sequelize;
