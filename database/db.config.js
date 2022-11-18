@@ -1,19 +1,9 @@
 /* eslint-disable no-console */
 const { Sequelize } = require('sequelize');
+const { development } = require('./database');
 
-require('dotenv').config();
-
-// using the data from the .env file to configure our database
-const databaseName = process.env.DATABASE_NAME;
-
-const username = process.env.DATABASE_USERNAME;
-
-const password = process.env.DATABASE_PASSWORD;
-
-const host = process.env.HOST;
-
-// creating an instance of our sequelize connection
-const sequelize = new Sequelize(databaseName, username, password, { host, dialect: 'postgres' });
+// new database connection using sequelize client
+const sequelize = new Sequelize(development);
 
 // database connection using configuration in db.config.js
 const databaseConnection = async () => {
@@ -28,4 +18,4 @@ const databaseConnection = async () => {
 databaseConnection();
 
 // export the instance of the connection
-module.exports = sequelize;
+module.exports = { sequelize };
