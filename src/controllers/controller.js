@@ -23,7 +23,7 @@ const createWallet = async (req, res) => {
     const response = await flw.VirtualAcct.create(payload);
     res.status(201).json({ data: response });
   } catch (error) {
-    res.status('status').json({ error });
+    res.status(500).json({ error });
   }
 };
 
