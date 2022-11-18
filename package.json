@@ -2,11 +2,11 @@
   "name": "team-fintech-backend",
   "version": "1.0.0",
   "description": "Backend for Fintech App",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon src/app.js",
     "migrate:up": "npx sequelize-cli db:migrate",
     "migrate:down": "npx sequelize-cli db:migrate:undo:all"
   },

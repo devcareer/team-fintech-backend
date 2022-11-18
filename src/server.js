@@ -15,9 +15,4 @@ app.use(express.json());
 // middleware for routing
 app.use('/api/v1', router);
 
-const port = process.env.PORT || 8080;
-
-// To check that node server is running successfully
-app.listen(port, () => {
-  console.log(`App is running on port ${port}`);
-});
+module.exports = app;
