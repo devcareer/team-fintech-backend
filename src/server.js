@@ -8,6 +8,6 @@ const app = express();
 // middleware for parsing json from client side
 app.use(express.json());
 // middleware for routing
-app.use('/api/v1', walletRouter.router);
+app.use('/api/v1', walletRouter);
 
 module.exports = app;
