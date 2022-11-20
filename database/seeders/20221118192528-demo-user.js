@@ -2,6 +2,9 @@
 // eslint-disable-next-line no-unused-vars
 const { Sequelize } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
+const bcrypt = require('bcrypt');
+
+const saltRounds = 10;
 
 // This function creates dummy data for the user table
 module.exports = {
@@ -15,7 +18,7 @@ module.exports = {
           firstName: 'John',
           lastName: 'Bassey',
           email: 'JB@gmail.com',
-          password: '9099',
+          password: await bcrypt.hash('9099', saltRounds),
           phoneNumber: '0909',
           is_verified: 'verified',
           created_at: new Date(),
@@ -26,7 +29,7 @@ module.exports = {
           firstName: 'Mary',
           lastName: 'Ernest',
           email: 'nn@gmail.com',
-          password: '0909',
+          password: await bcrypt.hash('0909', saltRounds),
           phoneNumber: '90889876',
           is_verified: 'verified',
           created_at: new Date(),
@@ -38,7 +41,7 @@ module.exports = {
           lastName: 'Ade',
           email: 'eni@gmail.com',
           phoneNumber: '09090909090',
-          password: '90u98ihd',
+          password: await bcrypt.hash('90u98ihd', saltRounds),
           is_verified: 'verified',
           created_at: new Date(),
           updated_at: new Date(),
