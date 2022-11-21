@@ -3,6 +3,7 @@
 const { Sequelize } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
+const { VERIFIED, UNVERIFIED } = require('../../src/assests/constants');
 
 const saltRounds = 10;
 
@@ -19,8 +20,8 @@ module.exports = {
           lastName: 'Bassey',
           email: 'JB@gmail.com',
           password: await bcrypt.hash('9099', saltRounds),
-          phoneNumber: '0909',
-          is_verified: 'verified',
+          phoneNumber: '09088765432',
+          is_verified: VERIFIED,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -30,8 +31,8 @@ module.exports = {
           lastName: 'Ernest',
           email: 'nn@gmail.com',
           password: await bcrypt.hash('0909', saltRounds),
-          phoneNumber: '90889876',
-          is_verified: 'verified',
+          phoneNumber: '08033456789',
+          is_verified: VERIFIED,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -40,9 +41,9 @@ module.exports = {
           firstName: 'Emmanuel',
           lastName: 'Ade',
           email: 'eni@gmail.com',
-          phoneNumber: '09090909090',
+          phoneNumber: '08033134557',
           password: await bcrypt.hash('90u98ihd', saltRounds),
-          is_verified: 'verified',
+          is_verified: UNVERIFIED,
           created_at: new Date(),
           updated_at: new Date(),
         },

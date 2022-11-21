@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
       },
       phoneNumber: {
-        type: DataTypes.BIGINT(11),
+        type: DataTypes.STRING(11),
         allowNull: false,
         unique: true,
       },

@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/app.js",
     "migrate:up": "npx sequelize-cli db:migrate",
-    "migrate:down": "npx sequelize-cli db:migrate:undo:all"
+    "migrate:down": "npx sequelize-cli db:migrate:undo:all",
+    "seed": "npm run migrate:up && npx sequelize-cli db:seed:all"
   },
   "repository": {
     "type": "git",

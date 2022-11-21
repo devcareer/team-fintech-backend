@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       amount: {
-        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
+        type: DataTypes.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
       wallet_id: {
@@ -41,11 +41,11 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
       },
       balance_before: {
-        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
+        type: DataTypes.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
       balance_after: {
-        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
+        type: DataTypes.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
       status: {
