@@ -2,6 +2,7 @@
 const express = require('express');
 
 const walletRouter = require('./routes/walletRoutes');
+const transactionRouter = require('./routes/transactionRoutes');
 
 const app = express();
 
@@ -9,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 // middleware for routing
-app.use('/api/v1', walletRouter);
+app.use('/api/v1/wallet', walletRouter);
+app.use('/api/v1/transfers', transactionRouter);
 
 module.exports = app;
