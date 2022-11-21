@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
       },
       balance: {
-        type: DataTypes.DECIMAL(20, 4).UNSIGNED,
+        type: DataTypes.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
       created_at: {

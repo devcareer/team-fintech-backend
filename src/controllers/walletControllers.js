@@ -2,7 +2,7 @@
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
 const Flutterwave = require('flutterwave-node-v3');
-const { CREATED } = require('../assests/constants');
+const { CREATED, ERROR } = require('../assests/constants');
 
 // eslint-disable-next-line import/no-unresolved
 
@@ -12,7 +12,7 @@ const { FLUTTERWAVE_PUBLIC_KEY: publicKey, FLUTTERWAVE_SECRET_KEY: secretKey } =
 const flw = new Flutterwave(publicKey, secretKey);
 
 // create wallet for users
-const createWallet = async (req, res, next) => {
+const createWallet = async (req, res) => {
   try {
     // a transaction reference is randomly created for each wallet created
     const transactionRef = uuidv4();
@@ -26,9 +26,9 @@ const createWallet = async (req, res, next) => {
 
     const response = await flw.VirtualAcct.create(payload);
 
-    res.status(CREATED).json(response);
+    res.status(CREATED).json({ data: response });
   } catch (error) {
-    next(error);
+    res.status(ERROR).json({ data: error });
   }
 };
 

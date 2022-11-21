@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       balance: {
-        type: Sequelize.DECIMAL(20, 4).UNSIGNED,
+        type: Sequelize.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
       created_at: {
