@@ -4,8 +4,9 @@ const express = require('express');
 // routes
 const walletRouter = require('./routes/walletRoutes');
 const accountRouter = require('./routes/accountRoutes');
-const bvnRouter = require('./routes/bvnRoutes');
+
 const airtimeRouter = require('./routes/airtimeRoutes');
+const bvnRouter = require('./routes/bvnRoutes');
 
 const app = express();
 
