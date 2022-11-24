@@ -11,7 +11,7 @@ const flw = new Flutterwave(publicKey, secretKey);
 const { ERROR, SUCCESS } = require('../assests/constants');
 
 const sendAirtime = async (req, res, next) => {
-  const { country, customer, amount, recurrence, type } = req.body;
+  const { country, customer, amount, recurrence } = req.body;
 
   const reference = uuidv4();
   try {
@@ -20,7 +20,7 @@ const sendAirtime = async (req, res, next) => {
       customer,
       amount,
       recurrence,
-      type,
+      type: 'AIRTIME',
       reference,
     };
     const response = await flw.Bills.create_bill(payload);
