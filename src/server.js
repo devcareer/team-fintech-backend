@@ -8,6 +8,8 @@ const accountRouter = require('./routes/accountRoutes');
 const airtimeRouter = require('./routes/airtimeRoutes');
 const bvnRouter = require('./routes/bvnRoutes');
 
+const airtimeRouter = require('./routes/airtimeRoutes');
+
 const app = express();
 
 // middleware for parsing json from client side
