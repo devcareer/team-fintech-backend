@@ -10,7 +10,7 @@ const flw = new Flutterwave(publicKey, secretKey);
 
 const { ERROR, SUCCESS } = require('../assests/constants');
 
-const sendAirtime = async (req, res, next) => {
+const transferAirtime = async (req, res, next) => {
   const { country, customer, amount, recurrence } = req.body;
 
   const reference = uuidv4();
@@ -37,4 +37,4 @@ const sendAirtime = async (req, res, next) => {
   }
 };
 
-module.exports = { sendAirtime };
+module.exports = { transferAirtime };
