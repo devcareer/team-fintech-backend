@@ -20,7 +20,9 @@ const sendAirtime = async (req, res, next) => {
       customer,
       amount,
       recurrence,
+
       type: 'AIRTIME',
+
       reference,
     };
     const response = await flw.Bills.create_bill(payload);
