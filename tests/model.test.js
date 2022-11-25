@@ -2,7 +2,7 @@ const shell = require('shelljs');
 const db = require('../.jest/test.db');
 
 beforeAll(async () => {
-  jest.resetModules()
+  jest.resetModules();
   await shell.exec('npm run migrate:up');
 });
 
