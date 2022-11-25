@@ -1,44 +1,43 @@
-const shell = require('shelljs');
-const db = require('../.jest/test.db');
-const { transferAirtime, sayHello } = require('../src/controllers/transactionControllers');
+const request = require('supertest');
+const baseUrl = '127.0.0.1:8000';
 const { v4: uuidv4 } = require('uuid');
 
-const mockResponse = {
-  status: jest.fn(),
-  send: jest.fn(),
-};
-const mockResponseSent = { send: jest.fn() };
-mockResponse.status = jest.fn().mockImplementation((status) => {
-  mockResponseSent.statusCode = status;
-  return mockResponseSent;
+test('airtime transfer function', async () => {
+  const reference = uuidv4();
+
+  const mockrequest = {
+    country: 'NG',
+    customer: '+23490803840303',
+    amount: 100,
+    recurrence: 'ONCE',
+    type: 'AIRTIME',
+    reference,
+  };
+
+  const response = await request(baseUrl).post('/api/v1/transfer/airtime').send(mockrequest);
+
+  // the status code is going to be 500 because  the wallet has insufficient funds
+  expect(response.statusCode).toBe(500);
+
+  expect(response.body.error).not.toBe(null);
 });
 
-const mockRequest = () => {
+test('data transfer function', async () => {
   const reference = uuidv4();
-  return {
-    body: {
-      country: 'NG',
-      customer: '+23490803840303',
-      amount: 100,
-      recurrence: 'ONCE',
-      type: 'AIRTIME',
-      reference,
-    },
-  };
-};
-const mockStatusCode = { SUCCESS: 200, ERROR: 500 };
 
-test(
-  1,
-  async () => {
-    let req = mockRequest();
-    // let country = 'NG';
-    const response = await transferAirtime(req);
-    //   const response = await sayHello();
-    expect(response).not.toBeNull();
-    const statusCode = mockStatusCode;
-    // await carController.processCarSale(response);
-    expect(response.statusCode).toBe(200);
-  },
-  20000
-);
+  const mockrequest = {
+    country: 'NG',
+    customer: '+23490803840303',
+    amount: 100,
+    type: 'MTN 50 MB',
+    recurrence: 'ONCE',
+    reference,
+  };
+  const response = await request(baseUrl).post('/api/v1/transfer/data').send(mockrequest);
+
+  // // the status code is going to be 500 because  the wallet has insufficient funds
+
+  expect(response.statusCode).toBe(500);
+
+  expect(response.body.error).not.toBe(null);
+});

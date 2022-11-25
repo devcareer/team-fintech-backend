@@ -29,7 +29,7 @@ const transferAirtime = async (req, res, next) => {
       res.status(SUCCESS).json(response);
     }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
@@ -54,7 +54,7 @@ const transferData = async (req, res, next) => {
       res.status(SUCCESS).json(response);
     }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
