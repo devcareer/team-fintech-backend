@@ -1,12 +1,7 @@
 require('dotenv').config();
-const Flutterwave = require('flutterwave-node-v3');
+// import flutterwave sdk
+const flw = require('../utils/flw_sdk');
 const { SUCCESS, ERROR } = require('../assests/constants');
-
-// get kwys for flutterwave api
-const { FLUTTERWAVE_PUBLIC_KEY: publicKey, FLUTTERWAVE_SECRET_KEY: secretKey } = process.env;
-
-// creating a flutter wave instance
-const flw = new Flutterwave(publicKey, secretKey);
 
 const getAccountDetails = async (req, res, next) => {
   try {
