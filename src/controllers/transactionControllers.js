@@ -1,14 +1,10 @@
 require('dotenv').config();
 
-const Flutterwave = require('flutterwave-node-v3');
-
 const { v4: uuidv4 } = require('uuid');
 
-const { FLUTTERWAVE_PUBLIC_KEY: publicKey, FLUTTERWAVE_SECRET_KEY: secretKey } = process.env;
-
-const flw = new Flutterwave(publicKey, secretKey);
-
 const { ERROR, SUCCESS } = require('../assests/constants');
+
+const flw = require('../utils/flw_sdk');
 
 const transferAirtime = async (req, res, next) => {
   const { country, customer, amount, recurrence } = req.body;
