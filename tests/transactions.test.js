@@ -1,5 +1,5 @@
 const request = require('supertest');
-const baseUrl = '127.0.0.1:8000';
+const baseUrl = 'localhost:8000';
 const { v4: uuidv4 } = require('uuid');
 
 test('airtime transfer function', async () => {
