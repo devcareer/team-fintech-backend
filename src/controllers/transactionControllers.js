@@ -62,4 +62,32 @@ const transferData = async (req, res, next) => {
   }
 };
 
-module.exports = { transferAirtime, transferData };
+const transferFunds = async (req, res, next) => {
+  try {
+    const { accountName, accountNumber, amount, narration, currency, beneficiaryName } = req.body;
+
+    // create transfer details for flutterwave
+    const payload = {
+      account_bank: accountName,
+      account_number: accountNumber,
+      amount,
+      narration,
+      currency,
+      reference: uuidv4(),
+      beneficiary_name: beneficiaryName,
+    };
+
+    const response = await flw.Transfer.initiate(payload);
+
+    // if reponse returns error
+    if (response.status === 'error') {
+      res.status(ERROR).json(response);
+    } else {
+      res.status(SUCCESS).json(response);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { transferAirtime, transferData, transferFunds };
