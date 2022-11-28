@@ -10,7 +10,7 @@ const flw = new Flutterwave(publicKey, secretKey);
 
 const getAccountDetails = async (req, res, next) => {
   try {
-    const { accountNumber, bankCode } = req.body;
+    const { accountNumber, bankCode } = req.query;
 
     const payload = {
       account_number: accountNumber,
