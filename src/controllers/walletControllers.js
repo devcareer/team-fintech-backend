@@ -1,15 +1,8 @@
 /* eslint-disable no-console */
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
-const Flutterwave = require('flutterwave-node-v3');
+const flw = require('../utils/flw_sdk'); // import flutter wave sdk
 const { ERROR, CREATED } = require('../assests/constants');
-
-// eslint-disable-next-line import/no-unresolved
-
-const { FLUTTERWAVE_PUBLIC_KEY: publicKey, FLUTTERWAVE_SECRET_KEY: secretKey } = process.env;
-
-// creating a flutter wave instance
-const flw = new Flutterwave(publicKey, secretKey);
 
 // create wallet for users
 const createWallet = async (req, res, next) => {
