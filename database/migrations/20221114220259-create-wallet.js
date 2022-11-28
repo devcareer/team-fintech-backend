@@ -21,6 +21,10 @@ module.exports = {
         type: Sequelize.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
+      order_ref: {
+        type: Sequelize.UUID,
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
