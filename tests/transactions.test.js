@@ -1,5 +1,11 @@
+require('dotenv').config();
+
 const request = require('supertest');
-const baseUrl = 'localhost:8000';
+
+const port = process.env.PORT;
+
+const baseUrl = `localhost:${port}`;
+
 const { v4: uuidv4 } = require('uuid');
 
 test('airtime transfer function', async () => {
