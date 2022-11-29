@@ -3,9 +3,9 @@ require('dotenv').config();
 const flw = require('../utils/flw_sdk');
 const { SUCCESS, ERROR } = require('../assests/constants');
 
-const getAccountDetails = async (req, res, next) => {
+const verifyAccountDetails = async (req, res, next) => {
   try {
-    const { accountNumber, bankCode } = req.body;
+    const { accountNumber, bankCode } = req.query;
 
     const payload = {
       account_number: accountNumber,
@@ -26,5 +26,5 @@ const getAccountDetails = async (req, res, next) => {
 };
 
 module.exports = {
-  getAccountDetails,
+  verifyAccountDetails,
 };

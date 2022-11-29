@@ -21,6 +21,7 @@ module.exports = {
             ['id']
           ),
           balance: 10000,
+          order_ref: uuidv4(),
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -36,6 +37,7 @@ module.exports = {
             ['id']
           ),
           balance: 20000,
+          order_ref: uuidv4(),
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -51,6 +53,7 @@ module.exports = {
             ['id']
           ),
           balance: 40000,
+          order_ref: uuidv4(),
           created_at: new Date(),
           updated_at: new Date(),
         },
