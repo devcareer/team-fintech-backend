@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 
 const { DEBIT, CREDIT, TRX_SUCCESS, TRANSFER, DEPOSIT, WITHDRAWAL } = require('../../src/assests/constants');
 
-
 // this function adds dummy data to the transactions database
 module.exports = {
   // eslint-disable-next-line no-shadow, no-unused-vars
