@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const { Sequelize, QueryInterface } = require('sequelize');
 const { v4: uuidv4 } = require('uuid');
-const { DEBIT, CREDIT, SUCCESS, TRANSFER, DEPOSIT, WITHDRAWAL } = require('../../src/assests/constants');
+const { DEBIT, CREDIT, TRANSFER, DEPOSIT, WITHDRAWAL } = require('../../src/assests/constants');
 
 // this function adds dummy data to the transactions database
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
         reference: uuidv4(),
         balance_before: 10000,
         balance_after: 8000,
-        status: SUCCESS,
+        status: 'success',
         created_at: new Date(),
         updated_at: new Date(),
       },
@@ -46,7 +46,7 @@ module.exports = {
         reference: uuidv4(),
         balance_before: 40000,
         balance_after: 38000,
-        status: SUCCESS,
+        status: 'success',
         created_at: new Date(),
         updated_at: new Date(),
       },
@@ -67,7 +67,7 @@ module.exports = {
         reference: uuidv4(),
         balance_before: 20000,
         balance_after: 22000,
-        status: SUCCESS,
+        status: 'success',
         created_at: new Date(),
         updated_at: new Date(),
       },
