@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const { getAccountDetails } = require('../controllers/accountControllers');
+const { verifyAccountDetails } = require('../controllers/accountControllers');
 
-router.get('/', getAccountDetails);
+router.get('/verify', verifyAccountDetails);
 
 module.exports = router;

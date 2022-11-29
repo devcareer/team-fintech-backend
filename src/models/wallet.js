@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
       },
+      order_ref: {
+        type: DataTypes.UUID,
+        allowNull: false,
+      },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
