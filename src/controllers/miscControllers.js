@@ -25,4 +25,14 @@ const getBvnDetails = async (req, res, next) => {
   }
 };
 
-module.exports = { getBvnDetails };
+const webHookHandler = async (req, res, next) => {
+  try {
+    const payload = req.body;
+
+    await console.log('webhook payload', payload);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getBvnDetails, webHookHandler };
