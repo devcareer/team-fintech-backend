@@ -20,6 +20,7 @@ module.exports = {
             },
             ['id']
           ),
+          account_number: '0690000040',
           balance: 10000,
           order_ref: uuidv4(),
           created_at: new Date(),
@@ -36,6 +37,7 @@ module.exports = {
             },
             ['id']
           ),
+          account_number: '0031625807099',
           balance: 20000,
           order_ref: uuidv4(),
           created_at: new Date(),
@@ -52,6 +54,7 @@ module.exports = {
             },
             ['id']
           ),
+          account_number: '2540782773934',
           balance: 40000,
           order_ref: uuidv4(),
           created_at: new Date(),
