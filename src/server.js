@@ -5,6 +5,7 @@ const express = require('express');
 const walletRouter = require('./routes/walletRoutes');
 const accountRouter = require('./routes/accountRoutes');
 const bvnRouter = require('./routes/bvnRoutes');
+const editProfileRouter = require('./routes/editProfileRoutes')
 
 const transactionRouter = require('./routes/transactionRoutes');
 
@@ -18,5 +19,6 @@ app.use('/api/v1/wallet', walletRouter);
 app.use('/api/v1/account', accountRouter);
 app.use('/api/v1/transfer', transactionRouter);
 app.use('/api/v1/bvn', bvnRouter);
+app.use('/api/v1/edit', editProfileRouter);
 
 module.exports = app;
