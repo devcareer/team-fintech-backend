@@ -5,8 +5,9 @@ const express = require('express');
 const walletRouter = require('./routes/walletRoutes');
 const accountRouter = require('./routes/accountRoutes');
 const bvnRouter = require('./routes/bvnRoutes');
-
 const transactionRouter = require('./routes/transactionRoutes');
+// error handler
+const errorHandler = require('./utils/errorHandler');
 
 const app = express();
 
@@ -18,5 +19,8 @@ app.use('/api/v1/wallet', walletRouter);
 app.use('/api/v1/account', accountRouter);
 app.use('/api/v1/transfer', transactionRouter);
 app.use('/api/v1/bvn', bvnRouter);
+
+// error handler middleware
+app.use(errorHandler);
 
 module.exports = app;
