@@ -29,9 +29,9 @@ const webHookHandler = async (req, res, next) => {
   try {
     const payload = req.body;
 
-    // eslint-disable-next-line no-console
     // placeholder for business logic to be performed by webhook
     // for now we log the request.
+    // eslint-disable-next-line no-console
     console.log('webhook payload', payload);
   } catch (error) {
     next(error);
