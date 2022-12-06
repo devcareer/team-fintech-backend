@@ -21,4 +21,9 @@ module.exports = {
   DEPOSIT: 'deposit',
   WITHDRAWAL: 'withdrawal',
   TRANSFER: 'transfer',
+
+  // ENUM values for transaction status
+  TRX_SUCCESS: 'success',
+  TRX_FAILED: 'failed',
+  TRX_PENDING: 'pending',
 };
