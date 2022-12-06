@@ -1,5 +1,5 @@
 // error handler middleware that catches all errors
-const handleError = (err, req, res) => {
+const handleError = (err, req, res, next) => {
   const { message, stack } = err;
   let { statusCode } = err;
 
@@ -14,6 +14,7 @@ const handleError = (err, req, res) => {
     status: 'error',
     message,
   });
+  next();
 };
 
 module.exports = handleError;
