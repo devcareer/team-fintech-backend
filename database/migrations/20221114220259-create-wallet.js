@@ -20,6 +20,7 @@ module.exports = {
       account_number: {
         type: Sequelize.BIGINT,
         allowNull: false,
+        unique: true,
       },
       balance: {
         type: Sequelize.DECIMAL(20, 2).UNSIGNED,

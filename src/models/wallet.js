@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       account_number: {
         type: DataTypes.BIGINT,
         allowNull: false,
+        unique: true,
       },
       balance: {
         type: DataTypes.DECIMAL(20, 2).UNSIGNED,
