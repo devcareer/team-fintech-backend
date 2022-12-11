@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
-const flw = require('../utils/flw_sdk'); // import flutter wave sdk
+const flw = require('../utils/flw_sdk');
+// import flutter wave sdk
+const { CALLBACK_URL } = process.env;
 const { ERROR, CREATED, FUNDING_FAILED, FUNDING_SUCCESS } = require('../assests/constants');
 
 // create wallet for users
-async function createWallet(req, res, next) {
+const createWallet = async (req, res, next) => {
   try {
     // a transaction reference is randomly created for each wallet created
     const transactionRef = uuidv4();
@@ -28,7 +30,7 @@ async function createWallet(req, res, next) {
   } catch (error) {
     next(error);
   }
-}
+};
 
 // Fund Users wallet
 const fundWallet = async (req, res, next) => {
@@ -36,8 +38,8 @@ const fundWallet = async (req, res, next) => {
     // Get amount user wants to fund wallet with and the transaction description from the user
     const { accountBank, accountNumber, fundNarration, amountFund } = req.body;
     const fundCurrency = 'NGN';
-    const fundReference = `transfer-${Date.now()}`;
-    const callbackUrl = 'https://webhook.site/74e008b8-e302-406c-84bd-dd19d400d8cf'; // Page to redirect users to after funding their wallet
+    const fundReference = `transfer-${Date.now()}-${uuidv4()}`;
+    const callbackUrl = CALLBACK_URL; // Page to redirect users to after funding their wallet
     const debitCurrency = 'NGN';
     // Payload for creating the users Bank account
     const payload = {
