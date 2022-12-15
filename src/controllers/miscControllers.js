@@ -25,4 +25,17 @@ const getBvnDetails = async (req, res, next) => {
   }
 };
 
-module.exports = { getBvnDetails };
+const webHookHandler = async (req, res, next) => {
+  try {
+    const payload = req.body;
+
+    // placeholder for business logic to be performed by webhook
+    // for now we log the request.
+    // eslint-disable-next-line no-console
+    console.log('webhook payload', payload);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getBvnDetails, webHookHandler };
