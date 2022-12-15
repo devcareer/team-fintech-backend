@@ -17,6 +17,11 @@ module.exports = {
           key: 'id',
         },
       },
+      account_number: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        unique: true,
+      },
       balance: {
         type: Sequelize.DECIMAL(20, 2).UNSIGNED,
         allowNull: false,
