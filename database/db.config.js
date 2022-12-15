@@ -2,6 +2,8 @@
 const { Sequelize } = require('sequelize');
 const { development } = require('./database');
 
+const logger = require('../src/utils/logger');
+
 // new database connection using sequelize client
 const sequelize = new Sequelize(development);
 
@@ -9,9 +11,9 @@ const sequelize = new Sequelize(development);
 const databaseConnection = async () => {
   try {
     await sequelize.authenticate();
-    console.log('successfully connected to database');
+    logger.info('successfully connected to database');
   } catch (error) {
-    console.error('unable to connect to database');
+    logger.error('unable to connect to database');
   }
 };
 

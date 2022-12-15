@@ -8,6 +8,10 @@ const accountRouter = require('./routes/accountRoutes');
 const miscRouter = require('./routes/miscRoutes');
 
 const transactionRouter = require('./routes/transactionRoutes');
+// error handler
+const errorHandler = require('./utils/errorHandler');
+
+// const { transferAirtime } = require('./controllers/transactionControllers');
 
 const app = express();
 
@@ -23,5 +27,9 @@ app.use('/api/v1/account', accountRouter);
 app.use('/api/v1/transfer', transactionRouter);
 app.use('/api/v1/bvn', miscRouter);
 app.use('/flw_webhook', miscRouter);
+
+
+// error handler middleware
+app.use(errorHandler);
 
 module.exports = app;
