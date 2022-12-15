@@ -60,15 +60,16 @@ const transferData = async (req, res, next) => {
 
 const transferFunds = async (req, res, next) => {
   try {
-    const { accountName, accountNumber, amount, narration, currency, beneficiaryName } = req.body;
+    const { bankCode, accountNumber, amount, narration, beneficiaryName } = req.body;
 
     // create transfer details for flutterwave
     const payload = {
-      account_bank: accountName,
+      account_bank: bankCode,
       account_number: accountNumber,
       amount,
       narration,
-      currency,
+      currency: 'NGN',
+      debit_currency: 'NGN',
       reference: uuidv4(),
       beneficiary_name: beneficiaryName,
     };
