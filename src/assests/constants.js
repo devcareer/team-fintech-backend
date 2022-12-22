@@ -26,4 +26,8 @@ module.exports = {
   TRX_SUCCESS: 'success',
   TRX_FAILED: 'failed',
   TRX_PENDING: 'pending',
+
+  // ENUM values for transaction status
+  FUNDING_SUCCESS: 'wallet funded',
+  FUNDING_FAILED: 'wallet not funded',
 };

@@ -11,7 +11,7 @@ module.exports = {
     database: DATABASE_NAME,
     host: HOST,
     dialect: 'postgres',
-    // logging: (str) => (process.env.SHOW_SQL_LOGS ? console.log(`[SEQUELIZE DATABASE] ${str}`) : null),
+    logging: (str) => (process.env.SHOW_SQL_LOGS ? console.log(`[SEQUELIZE DATABASE] ${str}`) : null),
   },
 
   test: {
