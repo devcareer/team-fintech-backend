@@ -1,7 +1,9 @@
-/* eslint-disable no-console */
+/* eslint-disable prettier/prettier */
+// eslint-disable no-console
 const express = require('express');
 const cors = require('cors');
 
+// eslint-disable-next-line prettier/prettier
 // routes
 const walletRouter = require('./routes/walletRoutes');
 const accountRouter = require('./routes/accountRoutes');
