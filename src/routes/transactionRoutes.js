@@ -9,5 +9,6 @@ router.post('/airtime', transferAirtime);
 router.post('/data', transferData);
 
 router.post('/cash', transferFunds);
+router.post('/cash', transferAirtime);
 
 module.exports = router;
